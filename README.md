@@ -13,11 +13,13 @@ npm run dev      # http://localhost:4321
 npm run build    # outputs the finished site to dist/
 ```
 
-## Hosting (free): Cloudflare Pages
-1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git → choose this repo.
-2. Framework preset: **Astro**. Build command `npm run build`. Output directory `dist`.
-3. Every push to `main` publishes the site automatically, with free SSL.
-4. Custom domains → add `deltafacilitiessolutions.com` and `www.deltafacilitiessolutions.com`.
+## Hosting (free): GitHub Pages
+`.github/workflows/deploy.yml` builds and publishes the site on every push to `main`, with free SSL.
+- Repo settings → Pages → Source: **GitHub Actions** (one-time).
+- Until a domain is connected, the site is at `https://<user>.github.io/<repo>/`.
+- To use the real domain, add `public/CNAME` containing `deltafacilitiessolutions.com`, point the domain's DNS at GitHub Pages
+  (A records 185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153 and `www` CNAME `<user>.github.io`),
+  then tick "Enforce HTTPS" in Settings → Pages.
 
 ## Contact forms
 The forms post to FormSubmit (free, no account needed) and arrive at the email set in `src/i18n/site.ts`.

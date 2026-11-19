@@ -15,10 +15,14 @@ export const formEndpoint = `https://formsubmit.co/${business.email}`;
 
 export type Lang = 'en' | 'fr';
 
+// BASE is '' on the real domain, or '/dfs-website' on the temporary github.io address.
+export const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+export const url = (p: string) => BASE + p;
+
 export const routes = {
-  en: { home: '/', contact: '/contact/', careers: '/careers/', thanks: '/thanks/' },
-  fr: { home: '/fr/', contact: '/fr/contact/', careers: '/fr/carrieres/', thanks: '/fr/merci/' },
-} as const;
+  en: { home: url('/'), contact: url('/contact/'), careers: url('/careers/'), thanks: url('/thanks/') },
+  fr: { home: url('/fr/'), contact: url('/fr/contact/'), careers: url('/fr/carrieres/'), thanks: url('/fr/merci/') },
+};
 
 export const t = {
   en: {

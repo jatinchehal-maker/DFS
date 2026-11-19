@@ -3,7 +3,7 @@ import Icon from './Icon.astro';
 import { t, routes, formEndpoint, type Lang } from '../i18n/site';
 const { lang } = Astro.props as { lang: Lang };
 const d = t[lang].careers; const r = routes[lang];
-const next = new URL(r.thanks, Astro.site).toString();
+const next = new URL(r.thanks, Astro.site!.origin).toString();
 ---
 <section class="bg-navy-900 text-white">
   <div class="container-x py-14 md:py-20">

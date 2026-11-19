@@ -1,0 +1,42 @@
+---
+import Icon from './Icon.astro';
+import { t, routes, formEndpoint, type Lang } from '../i18n/site';
+const { lang } = Astro.props as { lang: Lang };
+const d = t[lang].careers; const r = routes[lang];
+const next = new URL(r.thanks, Astro.site).toString();
+---
+<section class="bg-navy-900 text-white">
+  <div class="container-x py-14 md:py-20">
+    <h1 class="text-4xl font-extrabold sm:text-5xl">{d.title}</h1>
+    <p class="mt-4 max-w-2xl text-lg text-white/80">{d.lead}</p>
+  </div>
+</section>
+<section class="py-14 md:py-20">
+  <div class="container-x max-w-3xl">
+    <form action={formEndpoint} method="POST" class="grid gap-5 rounded-2xl bg-white p-6 ring-1 ring-slate-200 sm:grid-cols-2 sm:p-8">
+      <input type="hidden" name="_subject" value="New job application – deltafacilitiessolutions.com" />
+      <input type="hidden" name="_next" value={next} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+      <label class="label">{d.name}<input class="field" name="name" required autocomplete="name" /></label>
+      <label class="label">{d.email}<input class="field" type="email" name="email" required autocomplete="email" /></label>
+      <label class="label">{d.phone}<input class="field" type="tel" name="phone" required autocomplete="tel" /></label>
+      <label class="label">{d.city}<input class="field" name="city" autocomplete="address-level2" /></label>
+      <label class="label sm:col-span-2">{d.role}
+        <select class="field" name="role">{d.roles.map((x) => <option>{x}</option>)}</select>
+      </label>
+      <fieldset class="sm:col-span-2">
+        <legend class="label">{d.availability}</legend>
+        <div class="mt-2 flex flex-wrap gap-3">
+          {d.avail.map((x) => (
+            <label class="flex cursor-pointer items-center gap-2 rounded-full border border-slate-300 px-4 py-2 text-sm font-medium has-[:checked]:border-navy-900 has-[:checked]:bg-navy-900 has-[:checked]:text-white">
+              <input type="checkbox" name="availability" value={x} class="sr-only" />{x}
+            </label>
+          ))}
+        </div>
+      </fieldset>
+      <label class="label sm:col-span-2">{d.experience}<textarea class="field min-h-32" name="experience"></textarea></label>
+      <div class="sm:col-span-2"><button class="btn-dark" type="submit">{d.send}<Icon name="arrow" class="h-4 w-4" /></button></div>
+    </form>
+  </div>
+</section>

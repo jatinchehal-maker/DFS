@@ -1,0 +1,12 @@
+---
+import { t, routes, type Lang } from '../i18n/site';
+const { lang } = Astro.props as { lang: Lang };
+const d = t[lang].thanks;
+---
+<section class="py-28">
+  <div class="container-x max-w-xl text-center">
+    <h1 class="text-4xl font-extrabold text-navy-900">{d.title}</h1>
+    <p class="mt-4 text-lg text-muted">{d.body}</p>
+    <a href={routes[lang].home} class="btn-dark mt-8">{d.back}</a>
+  </div>
+</section>

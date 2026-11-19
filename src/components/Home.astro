@@ -1,0 +1,172 @@
+---
+import Icon from './Icon.astro';
+import { t, routes, type Lang } from '../i18n/site';
+const { lang } = Astro.props as { lang: Lang };
+const d = t[lang]; const r = routes[lang];
+---
+<!-- Hero with audience switch -->
+<section class="relative overflow-hidden bg-navy-900 text-white">
+  <div class="pointer-events-none absolute inset-0 opacity-[0.07]" style="background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:48px 48px"></div>
+  <div class="container-x relative grid items-center gap-12 py-16 md:py-24 lg:grid-cols-[1.15fr_1fr]">
+    <div>
+      <div role="tablist" class="inline-flex rounded-full bg-white/10 p-1 text-sm font-semibold" data-tabs>
+        <button role="tab" aria-selected="true" data-tab="biz" class="rounded-full px-4 py-2 aria-selected:bg-white aria-selected:text-navy-900">{d.audience.business}</button>
+        <button role="tab" aria-selected="false" data-tab="seek" class="rounded-full px-4 py-2 aria-selected:bg-white aria-selected:text-navy-900">{d.audience.seekers}</button>
+      </div>
+      <div data-panel="biz" class="mt-8">
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-amber-400">{d.hero.eyebrow}</p>
+        <h1 class="mt-3 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.6rem]">{d.hero.title}</h1>
+        <p class="mt-6 max-w-xl text-lg text-white/80">{d.hero.lead}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={r.contact} class="btn-primary">{d.hero.primary}<Icon name="arrow" class="h-4 w-4" /></a>
+          <a href={r.careers} class="btn-ghost">{d.hero.secondary}</a>
+        </div>
+      </div>
+      <div data-panel="seek" class="mt-8" hidden>
+        <p class="text-sm font-bold uppercase tracking-[0.16em] text-amber-400">{d.seekers.eyebrow}</p>
+        <h1 class="mt-3 text-4xl font-extrabold leading-[1.05] sm:text-5xl lg:text-[3.4rem]">{d.hero.seekersTitle}</h1>
+        <p class="mt-6 max-w-xl text-lg text-white/80">{d.hero.seekersLead}</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={r.careers} class="btn-primary">{d.hero.seekersPrimary}<Icon name="arrow" class="h-4 w-4" /></a>
+          <a href={r.contact} class="btn-ghost">{d.hero.seekersSecondary}</a>
+        </div>
+      </div>
+    </div>
+    <!-- Illustration: racking with pallets -->
+    <div class="relative hidden lg:block" aria-hidden="true">
+      <svg viewBox="0 0 420 360" class="w-full drop-shadow-2xl">
+        <rect x="10" y="10" width="400" height="340" rx="24" fill="#123a63"/>
+        <g stroke="#ffffff" stroke-opacity=".25" stroke-width="4"><path d="M50 40v280M370 40v280M50 120h320M50 210h320M50 300h320"/></g>
+        <g fill="#F2A93B"><rect x="70" y="72" width="70" height="46" rx="4"/><rect x="150" y="84" width="54" height="34" rx="4"/><rect x="250" y="66" width="96" height="52" rx="4"/></g>
+        <g fill="#e3ecf6"><rect x="70" y="164" width="90" height="44" rx="4"/><rect x="200" y="150" width="60" height="58" rx="4"/><rect x="280" y="170" width="66" height="38" rx="4"/></g>
+        <g fill="#F2A93B" fill-opacity=".7"><rect x="80" y="252" width="62" height="46" rx="4"/><rect x="160" y="262" width="80" height="36" rx="4"/><rect x="300" y="246" width="50" height="52" rx="4"/></g>
+      </svg>
+      <div class="absolute -bottom-6 -left-6 rounded-2xl bg-white p-5 text-navy-900 shadow-xl">
+        <p class="text-xs font-bold uppercase tracking-widest text-muted">DFS</p>
+        <p class="mt-1 font-display text-lg font-bold">Laval · Montréal · YHU</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Proof strip -->
+<section class="border-b border-slate-200 bg-sky-50">
+  <div class="container-x grid gap-6 py-10 sm:grid-cols-3">
+    {d.proof.map((p) => (
+      <div class="flex gap-3">
+        <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-navy-900 text-amber-400"><Icon name="check" class="h-4 w-4" /></span>
+        <div><p class="font-display text-lg font-bold text-navy-900">{p.k}</p><p class="text-sm text-muted">{p.v}</p></div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="scroll-mt-20 py-20 md:py-28">
+  <div class="container-x">
+    <div class="max-w-2xl">
+      <p class="eyebrow">{d.services.eyebrow}</p>
+      <h2 class="mt-3 text-3xl font-extrabold text-navy-900 sm:text-4xl">{d.services.title}</h2>
+      <p class="mt-4 text-lg text-muted">{d.services.lead}</p>
+    </div>
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {d.services.items.map((s) => (
+        <article class="group rounded-2xl border border-slate-200 bg-white p-7 transition hover:-translate-y-0.5 hover:border-navy-700/30 hover:shadow-lg">
+          <span class="grid h-12 w-12 place-items-center rounded-xl bg-sky-100 text-navy-800 group-hover:bg-navy-900 group-hover:text-amber-400"><Icon name={s.icon} /></span>
+          <h3 class="mt-5 text-xl font-bold text-navy-900">{s.title}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<section id="how" class="scroll-mt-20 bg-sky-50 py-20 md:py-28">
+  <div class="container-x">
+    <p class="eyebrow">{d.how.eyebrow}</p>
+    <h2 class="mt-3 max-w-2xl text-3xl font-extrabold text-navy-900 sm:text-4xl">{d.how.title}</h2>
+    <ol class="mt-12 grid gap-6 md:grid-cols-3">
+      {d.how.steps.map((s, i) => (
+        <li class="rounded-2xl bg-white p-7 shadow-sm ring-1 ring-slate-200">
+          <span class="font-display text-5xl font-extrabold text-amber-400">0{i + 1}</span>
+          <h3 class="mt-4 text-xl font-bold text-navy-900">{s.title}</h3>
+          <p class="mt-2 text-[15px] leading-relaxed text-muted">{s.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<!-- Job seekers -->
+<section class="py-20 md:py-28">
+  <div class="container-x grid items-center gap-10 rounded-3xl bg-navy-900 p-8 text-white sm:p-12 lg:grid-cols-2">
+    <div>
+      <p class="text-sm font-bold uppercase tracking-[0.16em] text-amber-400">{d.seekers.eyebrow}</p>
+      <h2 class="mt-3 text-3xl font-extrabold sm:text-4xl">{d.seekers.title}</h2>
+      <p class="mt-4 text-lg text-white/80">{d.seekers.body}</p>
+      <a href={r.careers} class="btn-primary mt-8">{d.seekers.cta}<Icon name="arrow" class="h-4 w-4" /></a>
+    </div>
+    <ul class="space-y-4">
+      {d.seekers.points.map((p) => (
+        <li class="flex items-center gap-4 rounded-xl bg-white/5 p-5 ring-1 ring-white/10">
+          <span class="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-amber-400 text-navy-950"><Icon name="check" class="h-5 w-5" /></span>
+          <span class="text-lg font-semibold">{p}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="scroll-mt-20 pb-20 md:pb-28">
+  <div class="container-x grid gap-10 lg:grid-cols-[1fr_1.3fr]">
+    <div>
+      <p class="eyebrow">{d.about.eyebrow}</p>
+      <h2 class="mt-3 text-3xl font-extrabold text-navy-900 sm:text-4xl">{d.about.title}</h2>
+    </div>
+    <div class="space-y-5 text-lg leading-relaxed text-muted">
+      <p>{d.about.body1}</p>
+      <p>{d.about.body2}</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="border-t border-slate-200 bg-sky-50 py-20 md:py-28">
+  <div class="container-x max-w-3xl">
+    <h2 class="text-3xl font-extrabold text-navy-900 sm:text-4xl">{d.faq.title}</h2>
+    <div class="mt-10 divide-y divide-slate-200 rounded-2xl bg-white ring-1 ring-slate-200">
+      {d.faq.items.map((f) => (
+        <details class="group p-6">
+          <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-lg font-semibold text-navy-900 [&::-webkit-details-marker]:hidden">
+            {f.q}
+            <span class="text-2xl leading-none text-navy-700 transition group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 leading-relaxed text-muted">{f.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- CTA band -->
+<section class="bg-amber-400">
+  <div class="container-x flex flex-col items-start justify-between gap-6 py-14 md:flex-row md:items-center">
+    <div>
+      <h2 class="text-3xl font-extrabold text-navy-950">{d.ctaBand.title}</h2>
+      <p class="mt-2 text-lg text-navy-950/80">{d.ctaBand.body}</p>
+    </div>
+    <a href={r.contact} class="btn-dark shrink-0">{d.ctaBand.cta}<Icon name="arrow" class="h-4 w-4" /></a>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll<HTMLButtonElement>('[data-tab]');
+  function show(id: string) {
+    tabs.forEach((b) => b.setAttribute('aria-selected', String(b.dataset.tab === id)));
+    document.querySelectorAll<HTMLElement>('[data-panel]').forEach((p) => (p.hidden = p.dataset.panel !== id));
+  }
+  tabs.forEach((b) => b.addEventListener('click', () => show(b.dataset.tab!)));
+  if (location.hash === '#jobs') show('seek');
+</script>

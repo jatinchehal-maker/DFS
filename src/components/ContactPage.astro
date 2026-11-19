@@ -1,0 +1,40 @@
+---
+import Icon from './Icon.astro';
+import { t, routes, business, formEndpoint, type Lang } from '../i18n/site';
+const { lang } = Astro.props as { lang: Lang };
+const d = t[lang].contact; const r = routes[lang];
+const next = new URL(r.thanks, Astro.site).toString();
+---
+<section class="bg-navy-900 text-white">
+  <div class="container-x py-14 md:py-20">
+    <h1 class="text-4xl font-extrabold sm:text-5xl">{d.title}</h1>
+    <p class="mt-4 max-w-2xl text-lg text-white/80">{d.lead}</p>
+  </div>
+</section>
+<section class="py-14 md:py-20">
+  <div class="container-x grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+    <form action={formEndpoint} method="POST" class="grid gap-5 rounded-2xl bg-white p-6 ring-1 ring-slate-200 sm:grid-cols-2 sm:p-8">
+      <input type="hidden" name="_subject" value="New consultation request – deltafacilitiessolutions.com" />
+      <input type="hidden" name="_next" value={next} />
+      <input type="hidden" name="_template" value="table" />
+      <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+      <label class="label">{d.name}<input class="field" name="name" required autocomplete="name" /></label>
+      <label class="label">{d.company}<input class="field" name="company" autocomplete="organization" /></label>
+      <label class="label">{d.email}<input class="field" type="email" name="email" required autocomplete="email" /></label>
+      <label class="label">{d.phone}<input class="field" type="tel" name="phone" autocomplete="tel" /></label>
+      <label class="label sm:col-span-2">{d.message}<textarea class="field min-h-36" name="message" required placeholder={d.messagePh}></textarea></label>
+      <div class="sm:col-span-2"><button class="btn-dark" type="submit">{d.send}<Icon name="arrow" class="h-4 w-4" /></button></div>
+    </form>
+    <aside class="space-y-8">
+      <div>
+        <p class="eyebrow">{d.direct}</p>
+        <a href={`mailto:${business.email}`} class="mt-2 flex items-center gap-2 break-all text-lg font-semibold text-navy-900 hover:underline"><Icon name="mail" class="h-5 w-5 shrink-0" />{business.email}</a>
+        {business.phone && <a href={`tel:${business.phone}`} class="mt-2 flex items-center gap-2 text-lg font-semibold text-navy-900 hover:underline"><Icon name="phone" class="h-5 w-5" />{business.phone}</a>}
+      </div>
+      <div>
+        <p class="eyebrow">{d.areaLabel}</p>
+        <p class="mt-2 flex items-center gap-2 text-lg text-navy-900"><Icon name="pin" class="h-5 w-5" />{business.area}</p>
+      </div>
+    </aside>
+  </div>
+</section>

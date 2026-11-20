@@ -11,8 +11,8 @@ export const business = {
   area: 'Laval and Montréal',
 };
 
-// Contact forms are delivered free by FormSubmit (formsubmit.co) to the email above.
-export const formEndpoint = `https://formsubmit.co/${business.email}`;
+// Forms post to our own Cloudflare Worker (cloudflare/form-worker), which emails the address above.
+export const formEndpoint = '/api/form';
 
 export type Lang = 'en' | 'fr';
 

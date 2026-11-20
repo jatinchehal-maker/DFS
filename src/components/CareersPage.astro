@@ -16,7 +16,6 @@ const next = new URL(r.thanks, Astro.site!.origin).toString();
     <form action={formEndpoint} method="POST" class="grid gap-5 rounded-2xl bg-white p-6 border-2 border-ink sm:grid-cols-2 sm:p-8">
       <input type="hidden" name="_subject" value="New job application – deltafacilitiessolutions.com" />
       <input type="hidden" name="_next" value={next} />
-      <input type="hidden" name="_template" value="table" />
       <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
       <label class="label">{d.name}<input class="field" name="name" required autocomplete="name" /></label>
       <label class="label">{d.email}<input class="field" type="email" name="email" required autocomplete="email" /></label>

@@ -36,6 +36,8 @@ export const t = {
     audience: { business: 'For businesses', seekers: 'For job seekers' },
     tagline: 'Warehousing, packaging, distribution and delivery',
     hero: {
+      hint: 'Move your cursor across the logo',
+      hintTouch: 'Touch the logo',
       eyebrow: 'Laval & Montreal operations partner',
       title: 'Busy season? Hand the work to a DFS crew.',
       lead:
@@ -128,6 +130,8 @@ export const t = {
     audience: { business: 'Pour les entreprises', seekers: 'Pour les chercheurs d’emploi' },
     tagline: 'Entreposage, emballage, distribution et livraison',
     hero: {
+      hint: 'Passez votre curseur sur le logo',
+      hintTouch: 'Touchez le logo',
       eyebrow: 'Partenaire des opérations à Laval et Montréal',
       title: 'Période de pointe? Confiez le travail à une équipe DFS.',
       lead:

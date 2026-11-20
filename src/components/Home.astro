@@ -1,20 +1,18 @@
 ---
 import Icon from './Icon.astro';
-import Hero from '../islands/Hero.tsx';
+import DfsHero from '../islands/DfsHero.tsx';
 import Faq from '../islands/Faq.tsx';
 import { t, routes, business, url, type Lang } from '../i18n/site';
 const { lang } = Astro.props as { lang: Lang };
 const d = t[lang]; const r = routes[lang];
-const heroCopy = {
-  tagline: d.tagline,
-  business: d.audience.business, seekers: d.audience.seekers,
-  bizTitle: d.hero.title, bizLead: d.hero.lead, bizPrimary: d.hero.primary, bizSecondary: d.hero.secondary,
-  seekTitle: d.hero.seekersTitle, seekLead: d.hero.seekersLead, seekPrimary: d.hero.seekersPrimary, seekSecondary: d.hero.seekersSecondary,
-};
 ---
-<Hero client:load copy={heroCopy} contactHref={r.contact} careersHref={r.careers}
-  email={business.email}
-  yardImg={url('/img/truck-yard.jpg')} logoImg={url('/img/dfs-logo-black-sm.png')} />
+<DfsHero client:load
+  headline={'Delta Facilities\nSolutions'}
+  body={d.hero.lead}
+  hint={d.hero.hint} hintTouch={d.hero.hintTouch}
+  primary={{ label: d.hero.primary, href: r.contact }}
+  secondary={{ label: d.hero.secondary, href: r.careers }}
+  logoSrc={url('/img/dfs-sculpture.png')} />
 
 <!-- What DFS takes off your hands -->
 <section class="border-b-2 border-ink bg-concrete">

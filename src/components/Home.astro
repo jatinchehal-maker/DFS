@@ -13,7 +13,7 @@ const heroCopy = {
 };
 ---
 <Hero client:load copy={heroCopy} contactHref={r.contact} careersHref={r.careers}
-  phone={business.phone} phoneHref={business.phoneHref}
+  email={business.email}
   yardImg={url('/img/truck-yard.jpg')} logoImg={url('/img/dfs-logo-black-sm.png')} />
 
 <!-- What DFS takes off your hands -->
@@ -107,14 +107,13 @@ const heroCopy = {
   </div>
 </section>
 
-<!-- Call band: the phone number from the flyer, set large -->
+<!-- Closing call to action -->
 <section class="bg-ink text-paper">
-  <div class="container-x py-16 md:py-20">
-    <h2 class="font-sans text-2xl font-bold">{d.ctaBand.title}</h2>
-    <p class="mt-2 max-w-xl text-paper/70">{d.ctaBand.body}</p>
-    <div class="mt-8 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-      <a href={`tel:${business.phoneHref}`} class="display whitespace-nowrap text-[13vw] hover:underline sm:text-8xl" aria-label={`${d.ctaBand.call} ${business.phone}`}>{business.phone}</a>
-      <a href={r.contact} class="btn-light shrink-0">{d.ctaBand.cta}</a>
+  <div class="container-x flex flex-col gap-8 py-16 md:flex-row md:items-end md:justify-between md:py-20">
+    <div>
+      <h2 class="display text-6xl sm:text-8xl">{d.ctaBand.title}</h2>
+      <p class="mt-4 max-w-xl text-lg text-paper/70">{d.ctaBand.body}</p>
     </div>
+    <a href={r.contact} class="btn-light shrink-0">{d.ctaBand.cta}</a>
   </div>
 </section>

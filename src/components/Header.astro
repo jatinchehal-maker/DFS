@@ -26,7 +26,6 @@ const links = [
         </summary>
         <div class="absolute right-0 mt-3 w-64 rounded-2xl border-2 border-ink bg-paper p-2">
           {links.map((l) => <a href={l.href} class="block rounded-xl px-3 py-2.5 font-medium hover:bg-concrete">{l.label}</a>)}
-          <a href={`tel:${business.phoneHref}`} class="block rounded-xl px-3 py-2.5 font-semibold">{business.phone}</a>
           <a href={r.contact} class="btn-dark mt-1 w-full">{d.cta}</a>
         </div>
       </details>

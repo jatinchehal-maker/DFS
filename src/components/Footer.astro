@@ -18,7 +18,6 @@ const d = t[lang]; const r = routes[lang];
       <a href={r.contact} class="hover:text-paper">{d.nav.contact}</a>
     </nav>
     <div class="space-y-3 text-sm">
-      <a href={`tel:${business.phoneHref}`} class="flex items-center gap-2 font-semibold text-paper hover:underline"><Icon name="phone" class="h-4 w-4" />{business.phone}</a>
       <a href={`mailto:${business.email}`} class="flex items-center gap-2 break-all hover:text-paper"><Icon name="mail" class="h-4 w-4 shrink-0" />{business.email}</a>
       <p class="flex items-center gap-2"><Icon name="pin" class="h-4 w-4 shrink-0" />{business.area}</p>
     </div>

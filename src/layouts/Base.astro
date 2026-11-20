@@ -14,8 +14,8 @@ const altUrl = new URL(url(alt), Astro.site);
 const altLang = lang === 'en' ? 'fr' : 'en';
 const ld = {
   '@context': 'https://schema.org', '@type': 'LocalBusiness', name: business.name,
-  url: Astro.site?.toString(), email: business.email, telephone: business.phone, foundingDate: String(business.founded), logo: new URL(url('/img/dfs-icon-512.png'), Astro.site).toString(),
-  areaServed: ['Laval', 'Montréal', 'Saint-Hubert'], description: t.en.meta.description,
+  url: Astro.site?.toString(), email: business.email, foundingDate: String(business.founded), logo: new URL(url('/img/dfs-icon-512.png'), Astro.site).toString(),
+  areaServed: ['Laval', 'Montréal'], description: t.en.meta.description,
 };
 ---
 <!doctype html>

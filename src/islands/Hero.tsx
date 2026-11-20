@@ -7,12 +7,12 @@ type Copy = {
   bizTitle: string; bizLead: string; bizPrimary: string; bizSecondary: string;
   seekTitle: string; seekLead: string; seekPrimary: string; seekSecondary: string;
 };
-type Props = { copy: Copy; contactHref: string; careersHref: string; phone: string; phoneHref: string; yardImg: string; logoImg: string };
+type Props = { copy: Copy; contactHref: string; careersHref: string; email: string; yardImg: string; logoImg: string };
 
 const WORDS = ['Delta', 'Facilities', 'Solutions'];
 const ease = [0.22, 1, 0.36, 1] as const;
 
-export default function Hero({ copy, contactHref, careersHref, phone, phoneHref, yardImg, logoImg }: Props) {
+export default function Hero({ copy, contactHref, careersHref, email, yardImg, logoImg }: Props) {
   const reduce = useReducedMotion();
   const [tab, setTab] = useState<'biz' | 'seek'>('biz');
   const d = (s: number) => (reduce ? 0 : s);
@@ -108,7 +108,7 @@ export default function Hero({ copy, contactHref, careersHref, phone, phoneHref,
 
           <div className="mt-7 flex items-center gap-4 border-t-2 border-ink/10 pt-5">
             <img src={logoImg} alt="" className="h-12 w-auto" width="60" height="49" />
-            <a href={`tel:${phoneHref}`} className="font-display text-2xl font-extrabold hover:underline">{phone}</a>
+            <a href={`mailto:${email}`} className="break-all text-sm font-semibold hover:underline">{email}</a>
           </div>
         </motion.div>
       </div>

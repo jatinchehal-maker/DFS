@@ -5,15 +5,15 @@ const { lang } = Astro.props as { lang: Lang };
 const d = t[lang].contact; const r = routes[lang];
 const next = new URL(r.thanks, Astro.site!.origin).toString();
 ---
-<section class="bg-navy-900 text-white">
+<section class="bg-ink text-paper">
   <div class="container-x py-14 md:py-20">
-    <h1 class="text-4xl font-extrabold sm:text-5xl">{d.title}</h1>
-    <p class="mt-4 max-w-2xl text-lg text-white/80">{d.lead}</p>
+    <h1 class="display text-6xl sm:text-7xl">{d.title}</h1>
+    <p class="mt-4 max-w-2xl text-lg text-paper/70">{d.lead}</p>
   </div>
 </section>
 <section class="py-14 md:py-20">
   <div class="container-x grid gap-12 lg:grid-cols-[1.4fr_1fr]">
-    <form action={formEndpoint} method="POST" class="grid gap-5 rounded-2xl bg-white p-6 ring-1 ring-slate-200 sm:grid-cols-2 sm:p-8">
+    <form action={formEndpoint} method="POST" class="grid gap-5 rounded-2xl bg-white p-6 border-2 border-ink sm:grid-cols-2 sm:p-8">
       <input type="hidden" name="_subject" value="New consultation request – deltafacilitiessolutions.com" />
       <input type="hidden" name="_next" value={next} />
       <input type="hidden" name="_template" value="table" />
@@ -27,13 +27,13 @@ const next = new URL(r.thanks, Astro.site!.origin).toString();
     </form>
     <aside class="space-y-8">
       <div>
-        <p class="eyebrow">{d.direct}</p>
-        <a href={`mailto:${business.email}`} class="mt-2 flex items-center gap-2 break-all text-lg font-semibold text-navy-900 hover:underline"><Icon name="mail" class="h-5 w-5 shrink-0" />{business.email}</a>
-        {business.phone && <a href={`tel:${business.phone}`} class="mt-2 flex items-center gap-2 text-lg font-semibold text-navy-900 hover:underline"><Icon name="phone" class="h-5 w-5" />{business.phone}</a>}
+        <p class="text-sm font-semibold text-steel">{d.direct}</p>
+        <a href={`mailto:${business.email}`} class="mt-2 flex items-center gap-2 break-all text-lg font-semibold text-ink hover:underline"><Icon name="mail" class="h-5 w-5 shrink-0" />{business.email}</a>
+        {business.phone && <a href={`tel:${business.phoneHref}`} class="mt-2 flex items-center gap-2 text-lg font-semibold text-ink hover:underline"><Icon name="phone" class="h-5 w-5" />{business.phone}</a>}
       </div>
       <div>
-        <p class="eyebrow">{d.areaLabel}</p>
-        <p class="mt-2 flex items-center gap-2 text-lg text-navy-900"><Icon name="pin" class="h-5 w-5" />{business.area}</p>
+        <p class="text-sm font-semibold text-steel">{d.areaLabel}</p>
+        <p class="mt-2 flex items-center gap-2 text-lg text-ink"><Icon name="pin" class="h-5 w-5" />{business.area}</p>
       </div>
     </aside>
   </div>

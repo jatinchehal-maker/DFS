@@ -5,9 +5,10 @@ export const business = {
   name: 'Delta Facilities Solutions',
   short: 'DFS',
   email: 'deltafacilitiessolutions@gmail.com',
-  // TODO: add the business phone number, e.g. '+1-450-555-0123'. Leave empty to hide it.
-  phone: '',
-  area: 'Laval · Montréal · Saint-Hubert (YHU)',
+  phone: '+1 (514) 260-4885',
+  phoneHref: '+15142604885',
+  founded: 2022,
+  area: 'Laval, Montréal and Saint-Hubert (YHU)',
 };
 
 // Contact forms are delivered free by FormSubmit (formsubmit.co) to the email above.
@@ -33,6 +34,7 @@ export const t = {
     },
     nav: { services: 'Services', how: 'How it works', careers: 'Careers', about: 'About', contact: 'Contact', cta: 'Book a consultation', switch: 'FR', switchLabel: 'Français' },
     audience: { business: 'For businesses', seekers: 'For job seekers' },
+    tagline: 'Warehousing, packaging, distribution and delivery',
     hero: {
       eyebrow: 'Laval & Montreal operations partner',
       title: 'Busy season? Hand the work to a DFS crew.',
@@ -59,9 +61,9 @@ export const t = {
         { icon: 'warehouse', title: 'Warehousing & material handling', body: 'Receiving, put-away, picking, inventory counts and loading docks, staffed for normal days and peak weeks.' },
         { icon: 'package', title: 'Packaging & co-packing', body: 'Kitting, labelling, repacking and finishing lines, with quality checks built into the shift.' },
         { icon: 'truck', title: 'Distribution & fulfillment', body: 'Order preparation, shipping and returns handling for retail, e-commerce and wholesale.' },
+        { icon: 'delivery', title: 'Delivery', body: 'Local deliveries across Laval and Montreal, from your dock to your customer’s door.' },
         { icon: 'plane', title: 'Airside support at YHU', body: 'Trained crews working airside at Montréal/Saint-Hubert Airport for cargo and ground handling tasks.' },
         { icon: 'calendar', title: 'Seasonal peak coverage', body: 'Holiday rushes, launches and inventory season covered without a recruiting campaign on your side.' },
-        { icon: 'shield', title: 'Safety & supervision', body: 'DFS supervisors on site, CNESST-registered, with clear reporting on hours, output and incidents.' },
       ],
     },
     how: {
@@ -97,7 +99,7 @@ export const t = {
         { q: 'Do you work in French and English?', a: 'Yes. Our supervisors and crews work in French and English.' },
       ],
     },
-    ctaBand: { title: 'Planning for your next peak?', body: 'Book a 15-minute call and we will tell you how a DFS crew could cover it.', cta: 'Book a consultation' },
+    ctaBand: { title: 'Planning for your next peak?', body: 'Call us or book a 15-minute consultation. We’ll tell you how a DFS crew could cover it.', cta: 'Book a consultation', call: 'Call' },
     contact: {
       title: 'Book a consultation',
       lead: 'Tell us about the work you need covered. We reply within one business day.',
@@ -114,7 +116,7 @@ export const t = {
       experience: 'Tell us about your experience (optional)', send: 'Send application',
     },
     thanks: { title: 'Thank you!', body: 'We received your message and will get back to you within one business day.', back: 'Back to home' },
-    footer: { rights: 'All rights reserved.', tagline: 'Warehousing, packaging and distribution crews for Laval and Montreal.' },
+    footer: { rights: 'All rights reserved.', tagline: 'Warehousing, packaging, distribution and delivery for Laval and Montreal. Established 2022.' },
   },
 
   fr: {
@@ -125,6 +127,7 @@ export const t = {
     },
     nav: { services: 'Services', how: 'Fonctionnement', careers: 'Carrières', about: 'À propos', contact: 'Contact', cta: 'Planifier un appel', switch: 'EN', switchLabel: 'English' },
     audience: { business: 'Pour les entreprises', seekers: 'Pour les chercheurs d’emploi' },
+    tagline: 'Entreposage, emballage, distribution et livraison',
     hero: {
       eyebrow: 'Partenaire des opérations à Laval et Montréal',
       title: 'Période de pointe? Confiez le travail à une équipe DFS.',
@@ -151,9 +154,9 @@ export const t = {
         { icon: 'warehouse', title: 'Entreposage et manutention', body: 'Réception, rangement, préparation, inventaires et quais de chargement, pour les journées normales comme les semaines de pointe.' },
         { icon: 'package', title: 'Emballage et co-emballage', body: 'Assemblage de trousses, étiquetage, remballage et lignes de finition, avec contrôle de la qualité intégré au quart.' },
         { icon: 'truck', title: 'Distribution et exécution des commandes', body: 'Préparation des commandes, expédition et gestion des retours pour le commerce de détail, en ligne et de gros.' },
+        { icon: 'delivery', title: 'Livraison', body: 'Livraisons locales à Laval et Montréal, de votre quai jusqu’à la porte de votre client.' },
         { icon: 'plane', title: 'Soutien côté piste à YHU', body: 'Des équipes formées qui travaillent côté piste à l’aéroport de Montréal/Saint-Hubert pour le fret et l’assistance au sol.' },
         { icon: 'calendar', title: 'Couverture des pointes saisonnières', body: 'Fêtes, lancements et inventaires couverts sans campagne de recrutement de votre côté.' },
-        { icon: 'shield', title: 'Sécurité et supervision', body: 'Superviseurs DFS sur place, inscrits à la CNESST, avec des rapports clairs sur les heures, la production et les incidents.' },
       ],
     },
     how: {
@@ -189,7 +192,7 @@ export const t = {
         { q: 'Travaillez-vous en français et en anglais?', a: 'Oui. Nos superviseurs et nos équipes travaillent en français et en anglais.' },
       ],
     },
-    ctaBand: { title: 'Vous planifiez votre prochaine pointe?', body: 'Planifiez un appel de 15 minutes et nous vous dirons comment une équipe DFS peut la couvrir.', cta: 'Planifier un appel' },
+    ctaBand: { title: 'Vous planifiez votre prochaine pointe?', body: 'Appelez-nous ou planifiez un appel de 15 minutes. Nous vous dirons comment une équipe DFS peut la couvrir.', cta: 'Planifier un appel', call: 'Appeler' },
     contact: {
       title: 'Planifier un appel',
       lead: 'Parlez-nous du travail à couvrir. Nous répondons en un jour ouvrable.',
@@ -206,6 +209,6 @@ export const t = {
       experience: 'Parlez-nous de votre expérience (facultatif)', send: 'Envoyer ma candidature',
     },
     thanks: { title: 'Merci!', body: 'Nous avons bien reçu votre message et vous répondrons en un jour ouvrable.', back: 'Retour à l’accueil' },
-    footer: { rights: 'Tous droits réservés.', tagline: 'Équipes d’entreposage, d’emballage et de distribution pour Laval et Montréal.' },
+    footer: { rights: 'Tous droits réservés.', tagline: 'Entreposage, emballage, distribution et livraison pour Laval et Montréal. Fondée en 2022.' },
   },
 };

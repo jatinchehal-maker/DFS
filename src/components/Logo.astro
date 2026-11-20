@@ -1,13 +1,8 @@
 ---
+import { url } from '../i18n/site';
 const { dark = false } = Astro.props;
 ---
-<span class="flex items-center gap-2.5">
-  <svg viewBox="0 0 40 40" class="h-9 w-9 shrink-0" aria-hidden="true">
-    <rect width="40" height="40" rx="9" fill={dark ? '#ffffff' : '#0B2A4A'} />
-    <path d="M20 8 32 31H8Z" fill="none" stroke="#F2A93B" stroke-width="4" stroke-linejoin="round" />
-  </svg>
-  <span class="leading-none">
-    <span class={`block font-display text-[17px] font-extrabold tracking-tight ${dark ? 'text-white' : 'text-navy-900'}`}>Delta Facilities</span>
-    <span class={`block text-[11px] font-semibold uppercase tracking-[0.2em] ${dark ? 'text-white/70' : 'text-muted'}`}>Solutions</span>
-  </span>
+<span class="flex items-center gap-3">
+  <img src={url(dark ? '/img/dfs-logo-white-sm.png' : '/img/dfs-logo-black-sm.png')} alt="" width="52" height="43" class="h-11 w-auto" />
+  <span class={`font-display text-[19px] font-extrabold uppercase leading-[0.95] ${dark ? 'text-paper' : 'text-ink'}`}>Delta Facilities<br />Solutions</span>
 </span>

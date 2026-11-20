@@ -28,7 +28,8 @@ const ld = {
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang={lang === 'fr' ? 'fr-CA' : 'en-CA'} href={canonical} />
     <link rel="alternate" hreflang={altLang === 'fr' ? 'fr-CA' : 'en-CA'} href={altUrl} />
-    <link rel="icon" href={url('/favicon.png')} type="image/png" />
+    <link rel="icon" href={url('/favicon.ico')} sizes="48x48" />
+    <link rel="icon" href={url('/icon-192.png')} type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href={url('/apple-touch-icon.png')} />
     <meta property="og:image" content={new URL(url('/img/og.jpg'), Astro.site)} />
     <meta name="theme-color" content="#000000" />
